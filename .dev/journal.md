@@ -7,3 +7,4 @@ Chronological log of work activity.
 - 2025-11-21 11:33 — chore: version 0.0.1
 - 2025-11-22 12:06 — wip: sketching interface
 - 2025-11-22 12:53 — wip: public api outline
+- 2025-11-22 18:14 — add MANIFEST.in
