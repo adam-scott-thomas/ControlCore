@@ -9,3 +9,4 @@ Chronological log of work activity.
 - 2025-11-22 12:53 — wip: public api outline
 - 2025-11-22 18:14 — add MANIFEST.in
 - 2025-11-23 16:15 — wip: sketching interface
+- 2025-11-23 16:29 — draft: core module layout
