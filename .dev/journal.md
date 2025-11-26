@@ -13,3 +13,4 @@ Chronological log of work activity.
 - 2025-11-24 10:37 — pin python >=3.10
 - 2025-11-26 12:30 — add MANIFEST.in
 - 2025-11-26 14:53 — add empty test_basic.py
+- 2025-11-26 17:15 — chore: add CODEOWNERS
