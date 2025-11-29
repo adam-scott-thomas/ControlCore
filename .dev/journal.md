@@ -19,3 +19,4 @@ Chronological log of work activity.
 - 2025-11-28 11:47 — docs: README stub
 - 2025-11-29 10:15 — wip: public api outline
 - 2025-11-29 10:27 — add MANIFEST.in
+- 2025-11-29 11:14 — docs: README stub
