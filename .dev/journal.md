@@ -17,3 +17,4 @@ Chronological log of work activity.
 - 2025-11-27 17:08 — chore: add CODEOWNERS
 - 2025-11-27 17:48 — chore: add pyproject.toml
 - 2025-11-28 11:47 — docs: README stub
+- 2025-11-29 10:15 — wip: public api outline
