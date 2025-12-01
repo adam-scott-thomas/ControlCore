@@ -22,3 +22,4 @@ Chronological log of work activity.
 - 2025-11-29 11:14 — docs: README stub
 - 2025-11-29 14:16 — wip: sketching interface
 - 2025-11-30 10:21 — draft: core module layout
+- 2025-12-01 10:29 — fix: handle empty config
