@@ -26,3 +26,4 @@ Chronological log of work activity.
 - 2025-12-01 15:40 — add example usage
 - 2025-12-01 16:55 — chore: update dependencies
 - 2025-12-02 12:19 — fix: import order
+- 2025-12-02 16:50 — add first unit test
