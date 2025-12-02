@@ -25,3 +25,4 @@ Chronological log of work activity.
 - 2025-12-01 10:29 — fix: handle empty config
 - 2025-12-01 15:40 — add example usage
 - 2025-12-01 16:55 — chore: update dependencies
+- 2025-12-02 12:19 — fix: import order
