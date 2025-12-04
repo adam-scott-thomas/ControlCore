@@ -29,3 +29,4 @@ Chronological log of work activity.
 - 2025-12-02 16:50 — add first unit test
 - 2025-12-03 15:56 — implement initial primitive
 - 2025-12-04 09:37 — feat: public factory
+- 2025-12-04 16:06 — add type hints
