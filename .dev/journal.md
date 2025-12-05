@@ -31,3 +31,4 @@ Chronological log of work activity.
 - 2025-12-04 09:37 — feat: public factory
 - 2025-12-04 16:06 — add type hints
 - 2025-12-04 18:33 — wip: exception hierarchy
+- 2025-12-05 14:52 — feat: add logging helper
