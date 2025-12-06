@@ -32,3 +32,4 @@ Chronological log of work activity.
 - 2025-12-04 16:06 — add type hints
 - 2025-12-04 18:33 — wip: exception hierarchy
 - 2025-12-05 14:52 — feat: add logging helper
+- 2025-12-06 09:15 — fix: handle empty config
