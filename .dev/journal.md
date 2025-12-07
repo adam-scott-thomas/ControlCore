@@ -33,3 +33,4 @@ Chronological log of work activity.
 - 2025-12-04 18:33 — wip: exception hierarchy
 - 2025-12-05 14:52 — feat: add logging helper
 - 2025-12-06 09:15 — fix: handle empty config
+- 2025-12-07 09:05 — chore: update dependencies
