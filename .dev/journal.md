@@ -41,3 +41,4 @@ Chronological log of work activity.
 - 2025-12-11 09:16 — fix: import order
 - 2025-12-11 09:51 — docs: note breaking change
 - 2025-12-11 10:35 — wip: exception hierarchy
+- 2025-12-11 12:10 — refactor: extract validation helper
