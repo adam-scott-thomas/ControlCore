@@ -40,3 +40,4 @@ Chronological log of work activity.
 - 2025-12-10 18:32 — chore: update dependencies
 - 2025-12-11 09:16 — fix: import order
 - 2025-12-11 09:51 — docs: note breaking change
+- 2025-12-11 10:35 — wip: exception hierarchy
