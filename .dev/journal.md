@@ -46,3 +46,4 @@ Chronological log of work activity.
 - 2025-12-11 13:52 — docs: note breaking change
 - 2025-12-12 12:29 — docs: elaborate module layout
 - 2025-12-12 17:49 — add first unit test
+- 2025-12-12 18:24 — add example usage
