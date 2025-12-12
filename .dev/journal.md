@@ -44,3 +44,4 @@ Chronological log of work activity.
 - 2025-12-11 12:10 — refactor: extract validation helper
 - 2025-12-11 13:41 — chore: rename private helper
 - 2025-12-11 13:52 — docs: note breaking change
+- 2025-12-12 12:29 — docs: elaborate module layout
