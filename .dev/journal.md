@@ -51,3 +51,4 @@ Chronological log of work activity.
 - 2025-12-15 14:29 — add first unit test
 - 2025-12-15 15:00 — docs: add quickstart
 - 2025-12-15 16:05 — test: config loader basic cases
+- 2025-12-15 16:10 — feat: public factory
