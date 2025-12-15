@@ -47,3 +47,4 @@ Chronological log of work activity.
 - 2025-12-12 12:29 — docs: elaborate module layout
 - 2025-12-12 17:49 — add first unit test
 - 2025-12-12 18:24 — add example usage
+- 2025-12-15 11:47 — wip: exception hierarchy
