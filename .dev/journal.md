@@ -49,3 +49,4 @@ Chronological log of work activity.
 - 2025-12-12 18:24 — add example usage
 - 2025-12-15 11:47 — wip: exception hierarchy
 - 2025-12-15 14:29 — add first unit test
+- 2025-12-15 15:00 — docs: add quickstart
