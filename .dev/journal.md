@@ -53,3 +53,4 @@ Chronological log of work activity.
 - 2025-12-15 16:05 — test: config loader basic cases
 - 2025-12-15 16:10 — feat: public factory
 - 2025-12-15 16:34 — tighten signatures
+- 2025-12-16 14:58 — chore: update dependencies
