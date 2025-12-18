@@ -56,3 +56,4 @@ Chronological log of work activity.
 - 2025-12-16 14:58 — chore: update dependencies
 - 2025-12-17 11:07 — refactor: extract validation helper
 - 2025-12-17 12:46 — fix: None input case
+- 2025-12-18 09:30 — wip: exception hierarchy
