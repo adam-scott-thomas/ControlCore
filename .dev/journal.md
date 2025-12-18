@@ -58,3 +58,4 @@ Chronological log of work activity.
 - 2025-12-17 12:46 — fix: None input case
 - 2025-12-18 09:30 — wip: exception hierarchy
 - 2025-12-18 09:41 — refactor: extract validation helper
+- 2025-12-18 10:32 — test: config loader basic cases
