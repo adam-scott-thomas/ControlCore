@@ -59,3 +59,4 @@ Chronological log of work activity.
 - 2025-12-18 09:30 — wip: exception hierarchy
 - 2025-12-18 09:41 — refactor: extract validation helper
 - 2025-12-18 10:32 — test: config loader basic cases
+- 2025-12-18 11:16 — fix: import order
