@@ -62,3 +62,4 @@ Chronological log of work activity.
 - 2025-12-18 11:16 — fix: import order
 - 2025-12-18 16:08 — add type hints
 - 2025-12-18 16:41 — feat: add config loader
+- 2025-12-19 15:45 — tighten signatures
