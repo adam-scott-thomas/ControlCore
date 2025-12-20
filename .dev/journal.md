@@ -64,3 +64,4 @@ Chronological log of work activity.
 - 2025-12-18 16:41 — feat: add config loader
 - 2025-12-19 15:45 — tighten signatures
 - 2025-12-20 09:03 — add first unit test
+- 2025-12-20 09:44 — feat: add logging helper
