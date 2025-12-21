@@ -67,3 +67,4 @@ Chronological log of work activity.
 - 2025-12-20 09:44 — feat: add logging helper
 - 2025-12-21 12:59 — add example usage
 - 2025-12-21 15:08 — chore: rename private helper
+- 2025-12-21 17:01 — chore: version bump
