@@ -65,3 +65,4 @@ Chronological log of work activity.
 - 2025-12-19 15:45 — tighten signatures
 - 2025-12-20 09:03 — add first unit test
 - 2025-12-20 09:44 — feat: add logging helper
+- 2025-12-21 12:59 — add example usage
