@@ -71,3 +71,4 @@ Chronological log of work activity.
 - 2025-12-22 16:22 — refactor: extract validation helper
 - 2025-12-23 09:23 — fix: import order
 - 2025-12-23 11:58 — test: add test for edge case
+- 2025-12-23 12:48 — wip: exception hierarchy
