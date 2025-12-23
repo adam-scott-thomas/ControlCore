@@ -70,3 +70,4 @@ Chronological log of work activity.
 - 2025-12-21 17:01 — chore: version bump
 - 2025-12-22 16:22 — refactor: extract validation helper
 - 2025-12-23 09:23 — fix: import order
+- 2025-12-23 11:58 — test: add test for edge case
