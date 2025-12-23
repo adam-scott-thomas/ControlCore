@@ -69,3 +69,4 @@ Chronological log of work activity.
 - 2025-12-21 15:08 — chore: rename private helper
 - 2025-12-21 17:01 — chore: version bump
 - 2025-12-22 16:22 — refactor: extract validation helper
+- 2025-12-23 09:23 — fix: import order
