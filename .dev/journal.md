@@ -74,3 +74,4 @@ Chronological log of work activity.
 - 2025-12-23 12:48 — wip: exception hierarchy
 - 2025-12-24 09:46 — fix: handle empty config
 - 2025-12-24 13:33 — docs: elaborate module layout
+- 2025-12-24 17:21 — refactor: use dataclass for state
