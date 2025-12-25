@@ -79,3 +79,4 @@ Chronological log of work activity.
 - 2025-12-24 17:45 — docs: add quickstart
 - 2025-12-25 10:36 — chore: rename private helper
 - 2025-12-25 13:14 — fix: None input case
+- 2025-12-25 14:29 — docs: note breaking change
