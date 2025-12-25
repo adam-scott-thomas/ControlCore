@@ -78,3 +78,4 @@ Chronological log of work activity.
 - 2025-12-24 17:36 — fix lint warnings
 - 2025-12-24 17:45 — docs: add quickstart
 - 2025-12-25 10:36 — chore: rename private helper
+- 2025-12-25 13:14 — fix: None input case
