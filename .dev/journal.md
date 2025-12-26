@@ -83,3 +83,4 @@ Chronological log of work activity.
 - 2025-12-26 09:55 — chore: rename private helper
 - 2025-12-26 11:32 — test: add test for edge case
 - 2025-12-26 14:29 — fix: handle empty config
+- 2025-12-26 17:32 — chore: rename private helper
