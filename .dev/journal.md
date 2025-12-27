@@ -87,3 +87,4 @@ Chronological log of work activity.
 - 2025-12-26 17:43 — chore: update dependencies
 - 2025-12-27 11:57 — docs: elaborate module layout
 - 2025-12-27 16:29 — tighten signatures
+- 2025-12-27 18:56 — test: config loader basic cases
