@@ -89,3 +89,4 @@ Chronological log of work activity.
 - 2025-12-27 16:29 — tighten signatures
 - 2025-12-27 18:56 — test: config loader basic cases
 - 2025-12-28 09:56 — add example usage
+- 2025-12-28 12:08 — fix: None input case
