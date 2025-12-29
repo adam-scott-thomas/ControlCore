@@ -93,3 +93,4 @@ Chronological log of work activity.
 - 2025-12-29 09:12 — tighten signatures
 - 2025-12-29 11:48 — wip: exception hierarchy
 - 2025-12-29 12:13 — feat: add logging helper
+- 2025-12-29 15:57 — test: add test for edge case
