@@ -91,3 +91,4 @@ Chronological log of work activity.
 - 2025-12-28 09:56 — add example usage
 - 2025-12-28 12:08 — fix: None input case
 - 2025-12-29 09:12 — tighten signatures
+- 2025-12-29 11:48 — wip: exception hierarchy
