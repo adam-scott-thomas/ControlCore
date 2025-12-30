@@ -94,3 +94,4 @@ Chronological log of work activity.
 - 2025-12-29 11:48 — wip: exception hierarchy
 - 2025-12-29 12:13 — feat: add logging helper
 - 2025-12-29 15:57 — test: add test for edge case
+- 2025-12-30 11:44 — wip: exception hierarchy
