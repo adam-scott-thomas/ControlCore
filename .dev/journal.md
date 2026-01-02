@@ -98,3 +98,4 @@ Chronological log of work activity.
 - 2025-12-30 12:17 — add type hints
 - 2025-12-31 11:29 — test: add test for edge case
 - 2026-01-01 10:59 — test: CLI happy path
+- 2026-01-02 17:27 — chore: bump version to 0.1.0a1
