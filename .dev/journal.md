@@ -101,3 +101,4 @@ Chronological log of work activity.
 - 2026-01-02 17:27 — chore: bump version to 0.1.0a1
 - 2026-01-02 18:32 — feat: wire up config loader
 - 2026-01-03 09:18 — docs: update README examples
+- 2026-01-03 10:18 — fix: handle empty input
