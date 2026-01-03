@@ -102,3 +102,4 @@ Chronological log of work activity.
 - 2026-01-02 18:32 — feat: wire up config loader
 - 2026-01-03 09:18 — docs: update README examples
 - 2026-01-03 10:18 — fix: handle empty input
+- 2026-01-03 12:56 — test: integration with mock backend
