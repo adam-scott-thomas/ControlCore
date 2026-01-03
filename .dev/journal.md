@@ -104,3 +104,4 @@ Chronological log of work activity.
 - 2026-01-03 10:18 — fix: handle empty input
 - 2026-01-03 12:56 — test: integration with mock backend
 - 2026-01-03 14:11 — refactor: extract helper
+- 2026-01-03 14:41 — fix: off-by-one bounds
