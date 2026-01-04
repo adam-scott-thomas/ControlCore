@@ -108,3 +108,4 @@ Chronological log of work activity.
 - 2026-01-04 11:03 — test: edge case for null
 - 2026-01-04 13:44 — refactor: collapse duplicate branches
 - 2026-01-04 15:51 — chore: bump version to 0.1.0a1
+- 2026-01-04 15:57 — docs: update README examples
