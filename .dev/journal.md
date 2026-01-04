@@ -106,3 +106,4 @@ Chronological log of work activity.
 - 2026-01-03 14:11 — refactor: extract helper
 - 2026-01-03 14:41 — fix: off-by-one bounds
 - 2026-01-04 11:03 — test: edge case for null
+- 2026-01-04 13:44 — refactor: collapse duplicate branches
