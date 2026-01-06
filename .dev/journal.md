@@ -110,3 +110,4 @@ Chronological log of work activity.
 - 2026-01-04 15:51 — chore: bump version to 0.1.0a1
 - 2026-01-04 15:57 — docs: update README examples
 - 2026-01-05 10:23 — docs: clarify retry semantics
+- 2026-01-06 18:03 — test: coverage for validation
