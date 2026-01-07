@@ -116,3 +116,4 @@ Chronological log of work activity.
 - 2026-01-07 12:11 — refactor: extract helper
 - 2026-01-07 13:02 — feat: add validation layer
 - 2026-01-07 13:16 — feat: add CLI arg parser
+- 2026-01-07 16:25 — feat: expose public API
