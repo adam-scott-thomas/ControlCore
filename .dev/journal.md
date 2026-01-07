@@ -112,3 +112,4 @@ Chronological log of work activity.
 - 2026-01-05 10:23 — docs: clarify retry semantics
 - 2026-01-06 18:03 — test: coverage for validation
 - 2026-01-06 18:25 — refactor: simplify error handling
+- 2026-01-07 10:48 — chore: pin test deps
