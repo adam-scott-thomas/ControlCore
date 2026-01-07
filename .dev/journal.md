@@ -113,3 +113,4 @@ Chronological log of work activity.
 - 2026-01-06 18:03 — test: coverage for validation
 - 2026-01-06 18:25 — refactor: simplify error handling
 - 2026-01-07 10:48 — chore: pin test deps
+- 2026-01-07 12:11 — refactor: extract helper
