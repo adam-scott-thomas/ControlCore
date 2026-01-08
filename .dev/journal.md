@@ -119,3 +119,4 @@ Chronological log of work activity.
 - 2026-01-07 16:25 — feat: expose public API
 - 2026-01-08 10:37 — feat: add validation layer
 - 2026-01-08 11:04 — chore: pin test deps
+- 2026-01-08 16:41 — refactor: extract helper
