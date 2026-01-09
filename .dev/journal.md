@@ -122,3 +122,4 @@ Chronological log of work activity.
 - 2026-01-08 16:41 — refactor: extract helper
 - 2026-01-09 09:39 — chore: update deps
 - 2026-01-09 11:26 — chore: bump version to 0.1.0a1
+- 2026-01-09 13:54 — refactor: simplify error handling
