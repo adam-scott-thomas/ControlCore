@@ -126,3 +126,4 @@ Chronological log of work activity.
 - 2026-01-09 14:47 — docs: install section
 - 2026-01-10 14:28 — docs: install section
 - 2026-01-10 15:55 — feat: add retry mechanism
+- 2026-01-10 18:02 — test: integration with mock backend
