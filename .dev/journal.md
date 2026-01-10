@@ -124,3 +124,4 @@ Chronological log of work activity.
 - 2026-01-09 11:26 — chore: bump version to 0.1.0a1
 - 2026-01-09 13:54 — refactor: simplify error handling
 - 2026-01-09 14:47 — docs: install section
+- 2026-01-10 14:28 — docs: install section
