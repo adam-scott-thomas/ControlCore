@@ -125,3 +125,4 @@ Chronological log of work activity.
 - 2026-01-09 13:54 — refactor: simplify error handling
 - 2026-01-09 14:47 — docs: install section
 - 2026-01-10 14:28 — docs: install section
+- 2026-01-10 15:55 — feat: add retry mechanism
