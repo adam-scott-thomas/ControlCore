@@ -133,3 +133,4 @@ Chronological log of work activity.
 - 2026-01-12 13:48 — test: edge case for null
 - 2026-01-12 14:50 — chore: update deps
 - 2026-01-13 09:36 — docs: update README examples
+- 2026-01-13 10:13 — test: coverage for validation
