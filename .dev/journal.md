@@ -135,3 +135,4 @@ Chronological log of work activity.
 - 2026-01-13 09:36 — docs: update README examples
 - 2026-01-13 10:13 — test: coverage for validation
 - 2026-01-13 10:48 — docs: install section
+- 2026-01-13 13:34 — fix: handle empty input
