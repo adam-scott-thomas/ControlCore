@@ -139,3 +139,4 @@ Chronological log of work activity.
 - 2026-01-13 14:11 — fix: handle empty input
 - 2026-01-15 16:32 — refactor: collapse duplicate branches
 - 2026-01-16 14:16 — docs: install section
+- 2026-01-16 15:16 — feat: add entry point
