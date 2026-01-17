@@ -144,3 +144,4 @@ Chronological log of work activity.
 - 2026-01-17 11:00 — test: coverage for validation
 - 2026-01-17 13:30 — feat: add CLI arg parser
 - 2026-01-17 17:23 — test: coverage for validation
+- 2026-01-17 18:13 — docs: clarify retry semantics
