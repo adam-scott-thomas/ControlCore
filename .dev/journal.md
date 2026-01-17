@@ -142,3 +142,4 @@ Chronological log of work activity.
 - 2026-01-16 15:16 — feat: add entry point
 - 2026-01-17 09:08 — refactor: simplify error handling
 - 2026-01-17 11:00 — test: coverage for validation
+- 2026-01-17 13:30 — feat: add CLI arg parser
