@@ -147,3 +147,4 @@ Chronological log of work activity.
 - 2026-01-17 18:13 — docs: clarify retry semantics
 - 2026-01-19 11:40 — feat: expose public API
 - 2026-01-19 14:42 — refactor: simplify error handling
+- 2026-01-19 18:17 — docs: clarify retry semantics
