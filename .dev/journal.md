@@ -149,3 +149,4 @@ Chronological log of work activity.
 - 2026-01-19 14:42 — refactor: simplify error handling
 - 2026-01-19 18:17 — docs: clarify retry semantics
 - 2026-01-21 11:30 — chore: update deps
+- 2026-01-21 12:34 — refactor: simplify error handling
