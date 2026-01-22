@@ -153,3 +153,4 @@ Chronological log of work activity.
 - 2026-01-21 17:40 — feat: add validation layer
 - 2026-01-22 15:06 — chore: pin test deps
 - 2026-01-22 16:01 — fix: off-by-one bounds
+- 2026-01-22 17:53 — docs: clarify retry semantics
