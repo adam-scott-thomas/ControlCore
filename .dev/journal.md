@@ -157,3 +157,4 @@ Chronological log of work activity.
 - 2026-01-23 11:52 — chore: pin test deps
 - 2026-01-23 17:37 — feat: add validation layer
 - 2026-01-25 13:19 — feat: add entry point
+- 2026-01-25 14:29 — feat: expose public API
