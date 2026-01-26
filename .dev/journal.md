@@ -161,3 +161,4 @@ Chronological log of work activity.
 - 2026-01-26 14:24 — feat: add validation layer
 - 2026-01-26 16:23 — feat: expose public API
 - 2026-01-26 17:21 — fix: unicode handling in messages
+- 2026-01-26 18:12 — feat: add validation layer
