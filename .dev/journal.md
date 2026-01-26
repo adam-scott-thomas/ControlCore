@@ -159,3 +159,4 @@ Chronological log of work activity.
 - 2026-01-25 13:19 — feat: add entry point
 - 2026-01-25 14:29 — feat: expose public API
 - 2026-01-26 14:24 — feat: add validation layer
+- 2026-01-26 16:23 — feat: expose public API
