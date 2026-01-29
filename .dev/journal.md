@@ -165,3 +165,4 @@ Chronological log of work activity.
 - 2026-01-27 10:14 — test: retry mechanism regression
 - 2026-01-28 09:05 — docs: clarify retry semantics
 - 2026-01-29 10:22 — chore: update deps
+- 2026-01-29 11:52 — test: coverage for validation
