@@ -166,3 +166,4 @@ Chronological log of work activity.
 - 2026-01-28 09:05 — docs: clarify retry semantics
 - 2026-01-29 10:22 — chore: update deps
 - 2026-01-29 11:52 — test: coverage for validation
+- 2026-01-30 14:19 — test: edge case for null
