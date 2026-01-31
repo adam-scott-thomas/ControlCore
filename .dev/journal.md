@@ -169,3 +169,4 @@ Chronological log of work activity.
 - 2026-01-30 14:19 — test: edge case for null
 - 2026-01-30 16:40 — refactor: extract helper
 - 2026-01-31 11:02 — feat: structured error types
+- 2026-01-31 15:49 — docs: update README examples
