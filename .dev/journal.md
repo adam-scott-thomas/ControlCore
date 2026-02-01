@@ -171,3 +171,4 @@ Chronological log of work activity.
 - 2026-01-31 11:02 — feat: structured error types
 - 2026-01-31 15:49 — docs: update README examples
 - 2026-02-01 14:03 — fix: thread-safety in shared state
+- 2026-02-01 15:45 — chore: pre-commit hooks
