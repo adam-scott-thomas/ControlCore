@@ -175,3 +175,4 @@ Chronological log of work activity.
 - 2026-02-03 16:53 — docs: clarify threading model
 - 2026-02-04 11:50 — fix: thread-safety in shared state
 - 2026-02-05 13:48 — fix: typing on 3.10
+- 2026-02-05 15:46 — fix: race condition
