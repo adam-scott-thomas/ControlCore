@@ -177,3 +177,4 @@ Chronological log of work activity.
 - 2026-02-05 13:48 — fix: typing on 3.10
 - 2026-02-05 15:46 — fix: race condition
 - 2026-02-07 12:03 — test: add integration test
+- 2026-02-07 14:16 — chore: bump version to 0.1.0b1
