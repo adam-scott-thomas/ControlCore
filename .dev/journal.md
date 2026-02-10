@@ -180,3 +180,4 @@ Chronological log of work activity.
 - 2026-02-07 14:16 — chore: bump version to 0.1.0b1
 - 2026-02-09 12:12 — chore: bump version to 0.1.0b1
 - 2026-02-10 10:10 — docs: architecture diagram
+- 2026-02-10 17:03 — refactor: simplify error handling
