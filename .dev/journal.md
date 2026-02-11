@@ -182,3 +182,4 @@ Chronological log of work activity.
 - 2026-02-10 10:10 — docs: architecture diagram
 - 2026-02-10 17:03 — refactor: simplify error handling
 - 2026-02-11 15:07 — fix: race condition
+- 2026-02-11 16:24 — fix: thread-safety in shared state
