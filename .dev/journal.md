@@ -184,3 +184,4 @@ Chronological log of work activity.
 - 2026-02-11 15:07 — fix: race condition
 - 2026-02-11 16:24 — fix: thread-safety in shared state
 - 2026-02-13 16:22 — docs: architecture diagram
+- 2026-02-13 16:54 — test: concurrent access
