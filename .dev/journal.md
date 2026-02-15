@@ -187,3 +187,4 @@ Chronological log of work activity.
 - 2026-02-13 16:54 — test: concurrent access
 - 2026-02-14 13:39 — refactor: simplify error handling
 - 2026-02-15 10:23 — test: concurrent access
+- 2026-02-15 10:26 — fix: race condition
