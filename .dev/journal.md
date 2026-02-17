@@ -189,3 +189,4 @@ Chronological log of work activity.
 - 2026-02-15 10:23 — test: concurrent access
 - 2026-02-15 10:26 — fix: race condition
 - 2026-02-15 13:06 — docs: clarify API contract
+- 2026-02-17 12:27 — fix: thread-safety in shared state
