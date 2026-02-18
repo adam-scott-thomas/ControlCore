@@ -191,3 +191,4 @@ Chronological log of work activity.
 - 2026-02-15 13:06 — docs: clarify API contract
 - 2026-02-17 12:27 — fix: thread-safety in shared state
 - 2026-02-17 16:14 — docs: clarify API contract
+- 2026-02-18 13:58 — fix: typing on 3.10
