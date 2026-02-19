@@ -195,3 +195,4 @@ Chronological log of work activity.
 - 2026-02-18 16:58 — docs: clarify API contract
 - 2026-02-18 18:56 — chore: pre-commit hooks
 - 2026-02-19 11:39 — fix: race condition
+- 2026-02-19 16:30 — chore: bump version to 0.1.0b1
