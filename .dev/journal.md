@@ -194,3 +194,4 @@ Chronological log of work activity.
 - 2026-02-18 13:58 — fix: typing on 3.10
 - 2026-02-18 16:58 — docs: clarify API contract
 - 2026-02-18 18:56 — chore: pre-commit hooks
+- 2026-02-19 11:39 — fix: race condition
