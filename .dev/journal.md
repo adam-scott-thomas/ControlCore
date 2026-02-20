@@ -199,3 +199,4 @@ Chronological log of work activity.
 - 2026-02-19 17:03 — test: concurrent access
 - 2026-02-20 12:17 — docs: clarify threading model
 - 2026-02-20 13:55 — fix: race condition
+- 2026-02-20 14:37 — test: concurrent access
