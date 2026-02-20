@@ -197,3 +197,4 @@ Chronological log of work activity.
 - 2026-02-19 11:39 — fix: race condition
 - 2026-02-19 16:30 — chore: bump version to 0.1.0b1
 - 2026-02-19 17:03 — test: concurrent access
+- 2026-02-20 12:17 — docs: clarify threading model
