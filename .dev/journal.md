@@ -203,3 +203,4 @@ Chronological log of work activity.
 - 2026-02-20 17:26 — fix: race condition
 - 2026-02-21 16:19 — chore: pre-commit hooks
 - 2026-02-23 12:09 — docs: clarify threading model
+- 2026-02-23 14:52 — test: add integration test
