@@ -205,3 +205,4 @@ Chronological log of work activity.
 - 2026-02-23 12:09 — docs: clarify threading model
 - 2026-02-23 14:52 — test: add integration test
 - 2026-02-25 18:34 — test: concurrent access
+- 2026-02-27 16:37 — refactor: simplify error handling
