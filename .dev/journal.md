@@ -210,3 +210,4 @@ Chronological log of work activity.
 - 2026-03-02 17:30 — test: regression test
 - 2026-03-02 17:42 — test: additional coverage
 - 2026-03-03 18:11 — chore: update copyright year
+- 2026-03-04 13:37 — refactor: rename internal helper
