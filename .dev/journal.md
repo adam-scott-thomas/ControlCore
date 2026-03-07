@@ -212,3 +212,4 @@ Chronological log of work activity.
 - 2026-03-03 18:11 — chore: update copyright year
 - 2026-03-04 13:37 — refactor: rename internal helper
 - 2026-03-06 14:23 — test: additional coverage
+- 2026-03-07 15:08 — fix: typo in error message
