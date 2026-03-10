@@ -213,3 +213,4 @@ Chronological log of work activity.
 - 2026-03-04 13:37 — refactor: rename internal helper
 - 2026-03-06 14:23 — test: additional coverage
 - 2026-03-07 15:08 — fix: typo in error message
+- 2026-03-10 09:44 — fix: edge case for None
