@@ -216,3 +216,4 @@ Chronological log of work activity.
 - 2026-03-10 09:44 — fix: edge case for None
 - 2026-03-11 17:33 — docs: contributing guide
 - 2026-03-13 11:09 — test: regression test
+- 2026-03-13 13:15 — test: additional coverage
