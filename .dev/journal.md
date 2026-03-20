@@ -219,3 +219,4 @@ Chronological log of work activity.
 - 2026-03-13 13:15 — test: additional coverage
 - 2026-03-17 09:22 — test: additional coverage
 - 2026-03-17 10:38 — chore: tidy imports
+- 2026-03-20 13:28 — test: regression test
