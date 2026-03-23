@@ -221,3 +221,4 @@ Chronological log of work activity.
 - 2026-03-17 10:38 — chore: tidy imports
 - 2026-03-20 13:28 — test: regression test
 - 2026-03-23 15:27 — docs: improve examples
+- 2026-03-23 17:22 — docs: expand troubleshooting
