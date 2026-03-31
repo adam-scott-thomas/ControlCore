@@ -223,3 +223,4 @@ Chronological log of work activity.
 - 2026-03-23 15:27 — docs: improve examples
 - 2026-03-23 17:22 — docs: expand troubleshooting
 - 2026-03-26 16:18 — chore: update copyright year
+- 2026-03-31 17:05 — docs: expand troubleshooting
