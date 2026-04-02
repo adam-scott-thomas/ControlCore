@@ -1,207 +1,122 @@
-﻿# ControlCore
+# ghostcore
 
-Structured LLM call orchestration daemon and CLI.
+LLM orchestration gateway with intelligent routing, fallback, and redaction.
 
-## Installation
+## Why
+
+Every project hardcodes model names and API clients. When a model is slow, rate-limited, or refuses a request, the call just fails. ghostcore routes each call to the best available model automatically — with circuit breakers, fallback chains, and post-model redaction baked in.
+
+## Install
 
 ```bash
-pip install .
-```
-
-For development:
-```bash
-pip install -e ".[dev]"
+pip install ghostcore
 ```
 
 ## Quick Start
 
-### Start the daemon
+```python
+from ControlCore.config import initialize_controlcore
+from ControlCore.adapters.executor import execute_call
+from ControlCore.schemas import ControlCoreCall, CallerIdentity, CallIntent, CallTarget
+
+# Initialize registries (reads env vars for API keys)
+config, model_registry, adapter_registry = initialize_controlcore()
+
+# Build a call
+call = ControlCoreCall(
+    caller=CallerIdentity(handle="my-app", account_id="00000000-0000-0000-0000-000000000000"),
+    intent=CallIntent(cls="lookup"),
+    target=CallTarget(type="model", alias="claude"),
+    prompt="What is the capital of France?",
+)
+
+# Execute with automatic fallback
+import asyncio
+result, trace = asyncio.run(execute_call(call, model_registry, adapter_registry))
+print(result.answer)
+```
+
+Or boot as a daemon and call over HTTP:
 
 ```bash
-ControlCore serve
+ghostcore serve            # binds to localhost:8265
+ghostcore run claude "Explain recursion"
+ghostcore result <job_id> --poll
 ```
-
-The daemon binds to `localhost:8265` by default.
-
-### Submit a call (sugar mode)
-
-```bash
-ControlCore run claude "What is kubernetes?"
-```
-
-### Submit a call (explicit mode)
-
-```bash
-ControlCore call \
-  --target claude \
-  --prompt "Explain recursion" \
-  --intent lookup \
-  --verbosity standard \
-  --determinism best_effort \
-  --timeout 15000
-```
-
-### Get result
-
-```bash
-ControlCore result <job_id>
-
-# Poll until complete
-ControlCore result <job_id> --poll
-```
-
-### Check health
-
-```bash
-ControlCore health
-```
-
-### List jobs
-
-```bash
-ControlCore jobs
-ControlCore jobs --status complete --limit 10
-```
-
-## CLI Flags
-
-| Flag | Schema Field | Values |
-|------|--------------|--------|
-| `--target`, `-t` | `target.alias` | Model alias |
-| `--prompt`, `-p` | `prompt` | The prompt text |
-| `--intent`, `-i` | `intent.class` | `lookup`, `summarize`, `extract`, `compare`, `draft`, `classify`, `reason`, `critique`, `translate`, `unknown` |
-| `--verbosity`, `-v` | `options.verbosity` | `minimal`, `standard`, `full` |
-| `--determinism`, `-d` | `options.determinism` | `strict`, `best_effort`, `off` |
-| `--timeout` | `options.timeouts.soft_ms` | Timeout in milliseconds |
-
-## API Endpoints
-
-### POST /call
-
-Submit a call for processing.
-
-**Request:**
-```json
-{
-  "caller": {"handle": "user", "account_id": "00000000-0000-0000-0000-000000000000"},
-  "intent": {"class": "lookup"},
-  "target": {"type": "model", "alias": "claude"},
-  "prompt": "Hello world",
-  "options": {
-    "verbosity": "standard",
-    "determinism": "best_effort",
-    "timeouts": {"soft_ms": 15000, "hard_ms": 60000}
-  }
-}
-```
-
-**Response (200):**
-```json
-{
-  "schema_version": "1.0.0",
-  "call_id": "uuid",
-  "status": "complete",
-  "answer": "Response content",
-  "provenance": {
-    "model_alias": "claude",
-    "trust_tier": "standard",
-    "started_at": "2024-01-01T00:00:00Z"
-  },
-  "redaction": {"performed": false, "items": []},
-  "errors": []
-}
-```
-
-**Response (202 - Queued):**
-```json
-{
-  "call_id": "uuid",
-  "job_id": "uuid",
-  "status": "running",
-  "message": "Job queued for processing. Poll /result/{job_id} for results."
-}
-```
-
-### GET /result/{job_id}
-
-Get result for a job.
-
-### GET /health
-
-Health check with job statistics.
-
-### GET /jobs
-
-List jobs with optional status filter.
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                         CLIENT                               │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   CLI       │    │ Assist/     │    │   HTTP      │     │
-│  │ (ControlCore)  │───▶│ Normalize   │───▶│   Client    │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                         DAEMON                               │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   HTTP      │    │  Validation │    │  Redaction  │     │
-│  │   Server    │───▶│  (strict)   │───▶│  Pipeline   │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│         │                │                    │             │
-│         └────────────────┼────────────────────┘             │
-│                          ▼                                  │
-│                  ┌─────────────┐                           │
-│                  │ Job Registry│                           │
-│                  └─────────────┘                           │
-└─────────────────────────────────────────────────────────────┘
+call → bouncer → eligibility filter → routing → adapter → redaction → result
+                                          ↓
+                                   circuit breaker
+                                          ↓
+                                   fallback chain
 ```
 
-**Key principle:** Assist/normalize logic runs CLIENT-SIDE ONLY. The daemon enforces strict validation.
+1. **Routing** — scores eligible models by trust tier, cost, and latency history
+2. **Eligibility** — filters models by intent, verbosity, and determinism requirements
+3. **Fallback** — tries models in order; switches on timeout, error, refusal, or rate limit
+4. **Adapter** — thin shim per provider; no shared state between providers
+5. **Redaction** — applied to model output (not the prompt); strips leaked secrets, emails, phone numbers
 
-## Redaction
+## Providers
 
-By default, sensitive content is auto-redacted:
-- API keys (`sk_*`, `rk_*`, `pk_*`)
-- Bearer tokens
-- Email addresses
-- Phone numbers
+| Provider | Models |
+|----------|--------|
+| OpenAI | GPT-4, GPT-4o, o1, o1-mini |
+| Anthropic | Claude Sonnet, Opus, Haiku |
+| Google | Gemini 1.5 Pro/Flash, Gemini 2.0 |
+| xAI | Grok, Grok-2 |
+| Mistral | Mistral Large/Medium/Small, Codestral |
+| Groq | Llama-70B, Llama-8B, Mixtral, Gemma |
+| Together | Llama-405B, Qwen-72B, DeepSeek-V3 |
+| DeepSeek | DeepSeek Chat, Coder, Reasoner |
+| Perplexity | Sonar (search-augmented) |
+| Ollama | Any local model |
 
-To disable redaction, you must explicitly acknowledge the risk with all three phrases:
-- `INCLUDE_SENSITIVE_DATA`
-- `NO_REDACTION_ACKNOWLEDGED`
-- `I_UNDERSTAND_AND_ACCEPT_RISK`
+Set the relevant `*_API_KEY` environment variables to enable each provider.
 
-## Error Types
+## Key Features
 
-| Code | Description |
-|------|-------------|
-| `validation_error` | Input validation failed |
-| `permission_denied` | Operation not permitted |
-| `adapter_error` | Adapter/model error |
-| `timeout` | Operation timed out |
-| `refused` | Request refused |
-| `unknown` | Unknown error |
+- **Circuit breakers** — automatically open on repeated failures, recover with half-open probing
+- **Trust tiers** — models tagged with trust levels; calls can require a minimum tier
+- **Post-model redaction** — output is scanned and sanitized before returning to caller
+- **Execution traces** — every call records which models were tried, timings, and outcomes
+- **Structured schemas** — Pydantic v2 throughout; strict validation at every boundary
+- **Async-native** — built on httpx + asyncio; runs in Starlette for low overhead
 
-## Testing
+## Spine Integration (optional)
 
-```bash
-pytest
+ghostcore supports [maelspine](https://github.com/adam-scott-thomas/maelspine) for zero-import access to registries across a larger application:
+
+```python
+from ControlCore.boot import boot
+
+core = boot()  # idempotent singleton
+
+# Any module, anywhere:
+from spine import Core
+registry = Core.instance().get("model_registry")
 ```
 
-## Development
+## HTTP API
 
-```bash
-# Install dev dependencies
-pip install -e ".[dev]"
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/call` | Submit a call |
+| GET | `/result/{job_id}` | Poll for result |
+| GET | `/health` | Health + job stats |
+| GET | `/jobs` | List recent jobs |
 
-# Run tests
-pytest -v
+## Part of the GhostLogic Stack
 
-# Run daemon in development
-ControlCore serve --host 127.0.0.1 --port 8265
 ```
+maelspine   — frozen capability registry
+ghostcore   — LLM orchestration gateway  ← you are here
+ghostserver — evidence server (Blackbox)
+```
+
+## License
+
+MIT — Copyright 2026 Adam Thomas / GhostLogic LLC

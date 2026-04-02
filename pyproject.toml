@@ -3,15 +3,16 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ControlCore"
+name = "ghostcore"
 version = "0.1.0"
-description = "ControlCore daemon and CLI for structured LLM call orchestration"
+description = "LLM orchestration gateway — intelligent routing, fallback, circuit breakers, redaction, 10+ providers"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
-    {name = "ControlCore Team"}
+    {name = "Adam Thomas", email = "adam@ghostlogic.dev"}
 ]
+keywords = ["llm", "gateway", "orchestration", "routing", "anthropic", "openai", "ai"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -28,7 +29,13 @@ dependencies = [
     "starlette>=0.32.0",
     "structlog>=23.0.0",
     "click>=8.0.0",
+    "maelspine>=0.1.1",
 ]
+
+[project.urls]
+Homepage = "https://github.com/adam-scott-thomas/ghostcore"
+Repository = "https://github.com/adam-scott-thomas/ghostcore"
+Issues = "https://github.com/adam-scott-thomas/ghostcore/issues"
 
 [project.optional-dependencies]
 dev = [
@@ -40,6 +47,7 @@ dev = [
 
 [project.scripts]
 ControlCore = "ControlCore.cli:main"
+ghostcore = "ControlCore.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
