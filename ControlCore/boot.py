@@ -18,8 +18,8 @@ def boot(config_path: Optional[Path] = None) -> Core:
 
     def setup(c: Core) -> None:
         from ControlCore.registry.learning import LearningStore
-        from ControlCore.registry.budget import BudgetTracker, BudgetConfig
-        from ControlCore.registry.preferences import Preferences
+        from ControlCore.registry.budget import BudgetTracker
+        from ControlCore.registry.config_loader import load_router_config
 
         config = ControlCoreConfig()
         if config_path is not None:
@@ -30,12 +30,13 @@ def boot(config_path: Optional[Path] = None) -> Core:
         for adapter in create_all_cloud_adapters().values():
             adapter_registry.register(adapter)
 
+        router_config = load_router_config()
         c.register("model_registry", model_registry)
         c.register("adapter_registry", adapter_registry)
         c.register("circuit_registry", CircuitBreakerRegistry())
-        c.register("learning", LearningStore())
-        c.register("budget", BudgetTracker(BudgetConfig(daily_limit=10.0, hourly_limit=2.0)))
-        c.register("preferences", Preferences())
+        c.register("learning", LearningStore(db_path=router_config.learning_db_path))
+        c.register("budget", BudgetTracker(router_config.budget))
+        c.register("preferences", router_config.preferences)
         c.boot(env="prod")
 
     return Core.boot_once(setup)
