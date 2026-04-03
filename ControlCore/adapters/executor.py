@@ -89,9 +89,23 @@ def _writeback(
         cost = 0.0
         prov = adapter_result.provenance
         if prov is not None:
-            input_tok = prov.input_tokens or 0
-            output_tok = prov.output_tokens or 0
-            cost = (input_tok * 0.01 + output_tok * 0.03) / 1000
+            inp = prov.input_tokens or 0
+            out = prov.output_tokens or 0
+
+            # Try to get real cost from model registry
+            input_rate = 0.01  # fallback per 1k tokens
+            output_rate = 0.03
+            if core.has("model_registry"):
+                try:
+                    registry = core.get("model_registry")
+                    model_entry = registry.get(model_alias)
+                    if model_entry and model_entry.cost_hints:
+                        input_rate = model_entry.cost_hints.input_per_1k_tokens or 0.01
+                        output_rate = model_entry.cost_hints.output_per_1k_tokens or 0.03
+                except Exception:
+                    pass
+
+            cost = (inp * input_rate + out * output_rate) / 1000
 
         # --- latency ---------------------------------------------------------
         latency_ms: float = 0.0

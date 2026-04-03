@@ -227,3 +227,79 @@ async def test_writeback_silent_without_spine():
     result = AdapterResult(status=AdapterStatus.success, content="hi")
     # Should complete without raising
     _writeback("some-model", result, "lookup")
+
+
+# ---------------------------------------------------------------------------
+# Test 5: Writeback uses per-model cost_hints from model registry
+# ---------------------------------------------------------------------------
+
+@pytest.mark.asyncio
+async def test_writeback_uses_registry_cost_hints(tmp_path):
+    """
+    When model_registry is registered in spine, _writeback uses the model's
+    cost_hints instead of the hardcoded fallback rates.
+
+    Model: input_per_1k_tokens=0.005, output_per_1k_tokens=0.015
+    Tokens: input=2000, output=1000
+    Expected cost = (2000 * 0.005 + 1000 * 0.015) / 1000
+                  = (10.0 + 15.0) / 1000
+                  = 0.025
+    (Same numeric result but different rates — confirmed by using a model
+    that would give 0.040 with the hardcoded 0.01/0.03 fallback.)
+    """
+    from ControlCore.registry.schema import CostHints, ModelEntry, ModelRegistry, Provider
+
+    # Build a model with distinctive pricing (not the 0.01/0.03 defaults)
+    model_entry = ModelEntry(
+        alias="priced:model",
+        provider=Provider.api_hub,
+        cost_hints=CostHints(
+            input_per_1k_tokens=0.005,
+            output_per_1k_tokens=0.015,
+        ),
+    )
+    model_registry = ModelRegistry(models=[model_entry])
+
+    db = tmp_path / "learning.db"
+    learning_store = LearningStore(db_path=str(db))
+    budget_tracker = BudgetTracker(BudgetConfig(daily_limit=10.0, hourly_limit=2.0))
+
+    def setup(c: Core) -> None:
+        c.register("learning", learning_store)
+        c.register("budget", budget_tracker)
+        c.register("model_registry", model_registry)
+        c.register("preferences", Preferences())
+        c.boot(env="test")
+
+    Core.boot_once(setup)
+
+    mock = MockAdapter(
+        handled_models={"priced:model"},
+        result=_success_result_with_tokens(input_tokens=2000, output_tokens=1000),
+    )
+    # Patch the result's provenance model_alias to match
+    mock._result.provenance.model_alias = "priced:model"
+
+    adapter_reg = make_adapter_registry(mock)
+
+    model_reg_for_engine = ModelRegistry(models=[model_entry])
+    engine = ExecutionEngine(
+        model_registry=model_reg_for_engine,
+        adapter_registry=adapter_reg,
+        circuit_registry=CircuitBreakerRegistry(),
+    )
+
+    call = make_call(target_alias="priced:model")
+    cc_result, _trace = await engine.execute_with_fallback(call)
+
+    assert cc_result.status == CallStatus.complete
+
+    spent = budget_tracker.spent_today()
+    # With registry rates 0.005/0.015: (2000*0.005 + 1000*0.015)/1000 = 0.025
+    # With fallback rates 0.01/0.03:   (2000*0.010 + 1000*0.030)/1000 = 0.050
+    # The distinction proves registry rates were used.
+    expected = (2000 * 0.005 + 1000 * 0.015) / 1000  # 0.025
+    assert abs(spent - expected) < 1e-9, (
+        f"Expected cost {expected} (registry rates), got {spent}. "
+        "Fallback rates would have produced 0.050."
+    )
