@@ -10,7 +10,7 @@ def reset():
 
 
 def test_boot_registers_all():
-    from ControlCore.boot import boot
+    from ghostrouter.boot import boot
     core = boot()
     assert core.has("model_registry")
     assert core.has("adapter_registry")
@@ -19,7 +19,7 @@ def test_boot_registers_all():
 
 
 def test_boot_idempotent():
-    from ControlCore.boot import boot
+    from ghostrouter.boot import boot
     c1 = boot()
     c2 = boot()
     assert c1 is c2

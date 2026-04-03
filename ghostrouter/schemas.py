@@ -1,4 +1,4 @@
-﻿"""Phase P0 schemas - strict contracts for ControlCore calls and results."""
+﻿"""Phase P0 schemas - strict contracts for ghostrouter calls and results."""
 
 from __future__ import annotations
 
@@ -170,7 +170,7 @@ class ControlCoreCall(SchemaVersioned):
     signature: Optional[str] = Field(None, description="Optional signature for the call envelope.")
     entrypoint: Optional[str] = Field(
         None,
-        description="Must remain unused by ControlCore. Exists for auditing explicit entrypoints elsewhere.",
+        description="Must remain unused by ghostrouter. Exists for auditing explicit entrypoints elsewhere.",
     )
 
     @field_validator("schema_version")

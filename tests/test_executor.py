@@ -13,21 +13,21 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.adapters.executor import (
+from ghostrouter.adapters.executor import (
     AdapterRegistry,
     ExecutionEngine,
     ExecutionOutcome,
 )
-from ControlCore.adapters.interface import AdapterResult, AdapterStatus
-from ControlCore.circuit_breaker import CircuitBreakerRegistry, CircuitConfig
-from ControlCore.registry.fallback import (
+from ghostrouter.adapters.interface import AdapterResult, AdapterStatus
+from ghostrouter.circuit_breaker import CircuitBreakerRegistry, CircuitConfig
+from ghostrouter.registry.fallback import (
     FallbackPolicy,
     ModelSwitchConfig,
     ModelSwitchCondition,
     QueueEscalationConfig,
 )
-from ControlCore.registry.schema import ModelRegistry, Provider
-from ControlCore.schemas import CallStatus
+from ghostrouter.registry.schema import ModelRegistry, Provider
+from ghostrouter.schemas import CallStatus
 
 from tests.conftest import MockAdapter, make_call, make_model
 

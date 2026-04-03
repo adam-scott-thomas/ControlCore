@@ -1,5 +1,5 @@
 """
-Tests for ControlCore.registry.routing — compute_routing_order()
+Tests for ghostrouter.registry.routing — compute_routing_order()
 
 Covers:
   - Higher trust tier ranked first
@@ -17,14 +17,14 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.registry.routing import (
+from ghostrouter.registry.routing import (
     RefusalHistory,
     RoutingResult,
     RoutingWeights,
     compute_routing_order,
 )
-from ControlCore.registry.schema import CostHints, TrustTier, TimeoutDefaults
-from ControlCore.schemas import IntentClass
+from ghostrouter.registry.schema import CostHints, TrustTier, TimeoutDefaults
+from ghostrouter.schemas import IntentClass
 
 from tests.conftest import make_call, make_model
 

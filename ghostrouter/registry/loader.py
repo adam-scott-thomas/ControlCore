@@ -19,7 +19,7 @@ from typing import Any, Dict, List, Optional, Union
 
 from pydantic import ValidationError as PydanticValidationError
 
-from ControlCore.registry.schema import ModelRegistry, ModelEntry
+from ghostrouter.registry.schema import ModelRegistry, ModelEntry
 
 
 class RegistryValidationError(Exception):

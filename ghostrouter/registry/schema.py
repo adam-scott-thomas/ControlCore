@@ -144,7 +144,7 @@ class ModelEntry(BaseModel):
     @field_validator("supported_intents")
     @classmethod
     def validate_intents(cls, v: List[str]) -> List[str]:
-        from ControlCore.schemas import IntentClass
+        from ghostrouter.schemas import IntentClass
         valid_intents = {e.value for e in IntentClass}
         for intent in v:
             if intent not in valid_intents:

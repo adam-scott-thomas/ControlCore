@@ -1,5 +1,5 @@
 """
-Tests for ControlCore.registry.learning — LearningStore
+Tests for ghostrouter.registry.learning — LearningStore
 
 Covers:
   1. record + query single call
@@ -19,7 +19,7 @@ import time
 
 import pytest
 
-from ControlCore.registry.learning import LearningStore, ModelStats
+from ghostrouter.registry.learning import LearningStore, ModelStats
 
 
 # ---------------------------------------------------------------------------

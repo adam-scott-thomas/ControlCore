@@ -1,6 +1,6 @@
 ﻿"""Model registry - authority over callable targets, no execution logic."""
 
-from ControlCore.registry.schema import (
+from ghostrouter.registry.schema import (
     ModelEntry,
     Provider,
     CapabilityTag,
@@ -9,7 +9,7 @@ from ControlCore.registry.schema import (
     CostHints,
     ModelRegistry,
 )
-from ControlCore.registry.loader import (
+from ghostrouter.registry.loader import (
     load_registry_from_file,
     load_registry_from_dict,
     validate_registry_entry,
@@ -19,7 +19,7 @@ from ControlCore.registry.loader import (
     set_global_registry,
     clear_global_registry,
 )
-from ControlCore.registry.dial import (
+from ghostrouter.registry.dial import (
     filter_eligible_models,
     EligibilityResult,
     ExclusionReason,
@@ -27,7 +27,7 @@ from ControlCore.registry.dial import (
     filter_by_capability,
     filter_by_provider,
 )
-from ControlCore.registry.routing import (
+from ghostrouter.registry.routing import (
     compute_routing_order,
     compute_routing_order_from_aliases,
     RoutingResult,
@@ -37,7 +37,7 @@ from ControlCore.registry.routing import (
     RoutingWeights,
     RefusalHistory,
 )
-from ControlCore.registry.fallback import (
+from ghostrouter.registry.fallback import (
     FallbackPolicy,
     RephraseStrategy,
     RephraseConfig,

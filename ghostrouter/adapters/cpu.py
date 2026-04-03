@@ -30,8 +30,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from ControlCore.schemas import ControlCoreCall
-from ControlCore.adapters.interface import (
+from ghostrouter.schemas import ControlCoreCall
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterConfig,
     AdapterResult,

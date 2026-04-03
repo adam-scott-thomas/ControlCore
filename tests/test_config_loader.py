@@ -1,4 +1,4 @@
-"""Tests for ControlCore/registry/config_loader.py"""
+"""Tests for ghostrouter/registry/config_loader.py"""
 from __future__ import annotations
 
 import math
@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from ControlCore.registry.config_loader import load_router_config, RouterConfig
-from ControlCore.registry.budget import BudgetConfig
-from ControlCore.registry.preferences import Preferences, AffinityRule
+from ghostrouter.registry.config_loader import load_router_config, RouterConfig
+from ghostrouter.registry.budget import BudgetConfig
+from ghostrouter.registry.preferences import Preferences, AffinityRule
 
 
 # ---------------------------------------------------------------------------

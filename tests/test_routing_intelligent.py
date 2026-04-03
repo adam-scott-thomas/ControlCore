@@ -11,14 +11,14 @@ from __future__ import annotations
 import pytest
 from spine import Core
 
-from ControlCore.registry.routing import (
+from ghostrouter.registry.routing import (
     RoutingWeights,
     compute_routing_order,
 )
-from ControlCore.registry.schema import CostHints
-from ControlCore.registry.learning import LearningStore, ModelStats
-from ControlCore.registry.budget import BudgetConfig, BudgetTracker
-from ControlCore.registry.preferences import AffinityRule, Preferences
+from ghostrouter.registry.schema import CostHints
+from ghostrouter.registry.learning import LearningStore, ModelStats
+from ghostrouter.registry.budget import BudgetConfig, BudgetTracker
+from ghostrouter.registry.preferences import AffinityRule, Preferences
 
 from tests.conftest import make_call, make_model
 
@@ -181,7 +181,7 @@ def test_task_affinity_boosts_matched_model():
     boosted = make_model(alias="boosted:model")
     plain = make_model(alias="plain:model")
 
-    call = make_call(intent_class=__import__("ControlCore.schemas", fromlist=["IntentClass"]).IntentClass.lookup)
+    call = make_call(intent_class=__import__("ghostrouter.schemas", fromlist=["IntentClass"]).IntentClass.lookup)
     weights = _weights_only_factor("task_affinity", 25.0)
 
     result = compute_routing_order(call, [plain, boosted], weights=weights)
@@ -264,7 +264,7 @@ def test_no_spine_all_factors_still_work():
 
 def test_no_spine_multiple_models_still_ranked():
     """Without spine, multi-model routing uses existing factors and falls back gracefully."""
-    from ControlCore.registry.schema import TrustTier
+    from ghostrouter.registry.schema import TrustTier
 
     trusted = make_model(alias="trusted:model", trust_tier=TrustTier.trusted)
     standard = make_model(alias="standard:model", trust_tier=TrustTier.standard)

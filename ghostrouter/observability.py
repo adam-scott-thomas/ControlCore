@@ -260,31 +260,31 @@ def set_metrics(backend: MetricsBackend) -> None:
 # --- Metric Names (Constants) ---
 
 class Metrics:
-    """Standard metric names for the ControlCore system."""
+    """Standard metric names for the ghostrouter system."""
     # Execution metrics
-    CALLS_TOTAL = "ControlCore_calls_total"
-    CALLS_DURATION_MS = "ControlCore_calls_duration_ms"
-    CALLS_SUCCESS = "ControlCore_calls_success_total"
-    CALLS_FAILED = "ControlCore_calls_failed_total"
-    CALLS_QUEUED = "ControlCore_calls_queued_total"
+    CALLS_TOTAL = "ghostrouter_calls_total"
+    CALLS_DURATION_MS = "ghostrouter_calls_duration_ms"
+    CALLS_SUCCESS = "ghostrouter_calls_success_total"
+    CALLS_FAILED = "ghostrouter_calls_failed_total"
+    CALLS_QUEUED = "ghostrouter_calls_queued_total"
 
     # Adapter metrics
-    ADAPTER_CALLS_TOTAL = "ControlCore_adapter_calls_total"
-    ADAPTER_DURATION_MS = "ControlCore_adapter_duration_ms"
-    ADAPTER_ERRORS = "ControlCore_adapter_errors_total"
-    ADAPTER_TIMEOUTS = "ControlCore_adapter_timeouts_total"
-    ADAPTER_REFUSALS = "ControlCore_adapter_refusals_total"
+    ADAPTER_CALLS_TOTAL = "ghostrouter_adapter_calls_total"
+    ADAPTER_DURATION_MS = "ghostrouter_adapter_duration_ms"
+    ADAPTER_ERRORS = "ghostrouter_adapter_errors_total"
+    ADAPTER_TIMEOUTS = "ghostrouter_adapter_timeouts_total"
+    ADAPTER_REFUSALS = "ghostrouter_adapter_refusals_total"
 
     # Routing metrics
-    ROUTING_ATTEMPTS = "ControlCore_routing_attempts_total"
-    MODELS_TRIED = "ControlCore_models_tried_total"
+    ROUTING_ATTEMPTS = "ghostrouter_routing_attempts_total"
+    MODELS_TRIED = "ghostrouter_models_tried_total"
 
     # Circuit breaker metrics
-    CIRCUIT_OPEN = "ControlCore_circuit_open"
-    CIRCUIT_HALF_OPEN_ATTEMPTS = "ControlCore_circuit_half_open_attempts_total"
+    CIRCUIT_OPEN = "ghostrouter_circuit_open"
+    CIRCUIT_HALF_OPEN_ATTEMPTS = "ghostrouter_circuit_half_open_attempts_total"
 
     # Resource metrics
-    ACTIVE_EXECUTIONS = "ControlCore_active_executions"
+    ACTIVE_EXECUTIONS = "ghostrouter_active_executions"
 
 
 # --- Convenience Functions ---

@@ -24,7 +24,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     ControlCoreCall,
     ControlCoreCallResult,
     Provenance,
@@ -34,19 +34,19 @@ from ControlCore.schemas import (
     CallStatus,
     RedactionReport,
 )
-from ControlCore.bouncer import enforce_bouncer
-from ControlCore.redaction import redact_text
-from ControlCore.registry.schema import ModelEntry, ModelRegistry
-from ControlCore.registry.dial import filter_eligible_models, EligibilityResult
-from ControlCore.registry.routing import compute_routing_order, RoutingResult, RefusalHistory
-from ControlCore.registry.fallback import FallbackPolicy, default_policy, ModelSwitchCondition
-from ControlCore.adapters.interface import (
+from ghostrouter.bouncer import enforce_bouncer
+from ghostrouter.redaction import redact_text
+from ghostrouter.registry.schema import ModelEntry, ModelRegistry
+from ghostrouter.registry.dial import filter_eligible_models, EligibilityResult
+from ghostrouter.registry.routing import compute_routing_order, RoutingResult, RefusalHistory
+from ghostrouter.registry.fallback import FallbackPolicy, default_policy, ModelSwitchCondition
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterResult,
     AdapterStatus,
     AdapterConfig,
 )
-from ControlCore.observability import (
+from ghostrouter.observability import (
     get_or_create_trace,
     trace_span,
     with_trace_id,
@@ -58,7 +58,7 @@ from ControlCore.observability import (
     get_metrics,
     Metrics,
 )
-from ControlCore.circuit_breaker import (
+from ghostrouter.circuit_breaker import (
     CircuitBreakerRegistry,
     CircuitOpenError,
     get_circuit_registry,
@@ -678,7 +678,7 @@ def create_stub_adapter_registry() -> AdapterRegistry:
     """
     Create an adapter registry with stub adapters for testing.
     """
-    from ControlCore.adapters.cpu import StubCPUAdapter, CPUAdapterConfig
+    from ghostrouter.adapters.cpu import StubCPUAdapter, CPUAdapterConfig
 
     registry = AdapterRegistry()
 

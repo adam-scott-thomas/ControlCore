@@ -4,8 +4,8 @@ from pathlib import Path
 from dataclasses import dataclass
 from typing import Optional
 
-from ControlCore.registry.budget import BudgetConfig
-from ControlCore.registry.preferences import Preferences, AffinityRule
+from ghostrouter.registry.budget import BudgetConfig
+from ghostrouter.registry.preferences import Preferences, AffinityRule
 
 
 @dataclass

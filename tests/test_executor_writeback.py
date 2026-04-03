@@ -15,19 +15,19 @@ import pytest_asyncio
 
 from spine import Core
 
-from ControlCore.adapters.executor import AdapterRegistry, ExecutionEngine
-from ControlCore.adapters.interface import (
+from ghostrouter.adapters.executor import AdapterRegistry, ExecutionEngine
+from ghostrouter.adapters.interface import (
     AdapterProvenance,
     AdapterResult,
     AdapterStatus,
     AdapterTiming,
 )
-from ControlCore.circuit_breaker import CircuitBreakerRegistry
-from ControlCore.registry.budget import BudgetConfig, BudgetTracker
-from ControlCore.registry.learning import LearningStore
-from ControlCore.registry.preferences import Preferences
-from ControlCore.registry.schema import ModelRegistry, Provider
-from ControlCore.schemas import CallStatus
+from ghostrouter.circuit_breaker import CircuitBreakerRegistry
+from ghostrouter.registry.budget import BudgetConfig, BudgetTracker
+from ghostrouter.registry.learning import LearningStore
+from ghostrouter.registry.preferences import Preferences
+from ghostrouter.registry.schema import ModelRegistry, Provider
+from ghostrouter.schemas import CallStatus
 
 from tests.conftest import MockAdapter, make_call, make_model
 
@@ -182,7 +182,7 @@ async def test_writeback_records_to_budget_tracker(booted_spine, budget_tracker)
 @pytest.mark.asyncio
 async def test_writeback_records_failed_outcome(booted_spine, learning_store):
     """execute_with_fallback writeback records even when the model errors."""
-    from ControlCore.registry.fallback import (
+    from ghostrouter.registry.fallback import (
         FallbackPolicy,
         ModelSwitchConfig,
         QueueEscalationConfig,
@@ -222,7 +222,7 @@ async def test_writeback_records_failed_outcome(booted_spine, learning_store):
 async def test_writeback_silent_without_spine():
     """_writeback does not raise when spine has not been booted."""
     # Spine is not booted (reset_spine fixture cleared it).
-    from ControlCore.adapters.executor import _writeback
+    from ghostrouter.adapters.executor import _writeback
 
     result = AdapterResult(status=AdapterStatus.success, content="hi")
     # Should complete without raising
@@ -247,7 +247,7 @@ async def test_writeback_uses_registry_cost_hints(tmp_path):
     (Same numeric result but different rates — confirmed by using a model
     that would give 0.040 with the hardcoded 0.01/0.03 fallback.)
     """
-    from ControlCore.registry.schema import CostHints, ModelEntry, ModelRegistry, Provider
+    from ghostrouter.registry.schema import CostHints, ModelEntry, ModelRegistry, Provider
 
     # Build a model with distinctive pricing (not the 0.01/0.03 defaults)
     model_entry = ModelEntry(

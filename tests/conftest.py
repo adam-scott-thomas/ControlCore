@@ -1,10 +1,10 @@
 """
-Shared test fixtures and helpers for ControlCore tests.
+Shared test fixtures and helpers for ghostrouter tests.
 
 Factory functions use exact field names from:
-  - ControlCore/schemas.py         (ControlCoreCall, Caller, Intent, Target, Params, CallOptions)
-  - ControlCore/adapters/interface.py (ExecutionAdapter, AdapterResult, AdapterStatus, AdapterConfig)
-  - ControlCore/registry/schema.py  (ModelEntry, Provider)
+  - ghostrouter/schemas.py         (ControlCoreCall, Caller, Intent, Target, Params, CallOptions)
+  - ghostrouter/adapters/interface.py (ExecutionAdapter, AdapterResult, AdapterStatus, AdapterConfig)
+  - ghostrouter/registry/schema.py  (ModelEntry, Provider)
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ from typing import Optional, Set
 
 import pytest
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     Caller,
     CallOptions,
     ControlCoreCall,
@@ -25,13 +25,13 @@ from ControlCore.schemas import (
     TargetType,
     TrustTier,
 )
-from ControlCore.adapters.interface import (
+from ghostrouter.adapters.interface import (
     AdapterConfig,
     AdapterResult,
     AdapterStatus,
     ExecutionAdapter,
 )
-from ControlCore.registry.schema import (
+from ghostrouter.registry.schema import (
     ModelEntry,
     Provider,
 )

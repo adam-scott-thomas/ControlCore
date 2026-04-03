@@ -1,4 +1,4 @@
-"""Tests for ControlCore.registry.budget — BudgetTracker."""
+"""Tests for ghostrouter.registry.budget — BudgetTracker."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import time
 
 import pytest
 
-from ControlCore.registry.budget import BudgetConfig, BudgetExceeded, BudgetTracker
+from ghostrouter.registry.budget import BudgetConfig, BudgetExceeded, BudgetTracker
 
 
 # ---------------------------------------------------------------------------

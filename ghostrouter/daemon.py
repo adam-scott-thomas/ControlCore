@@ -1,5 +1,5 @@
 ﻿"""
-ControlCore daemon - HTTP server for processing LLM calls.
+ghostrouter daemon - HTTP server for processing LLM calls.
 
 CRITICAL: The daemon MUST NEVER run assist logic.
 All input must be strictly validated ControlCoreCall payloads.
@@ -21,25 +21,25 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse
 from starlette.routing import Route
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     ControlCoreCall,
     CallStatus,
     CallError,
     ErrorCode,
 )
-from ControlCore.bouncer import enforce_bouncer
-from ControlCore.job_registry import get_registry
-from ControlCore.adapters.executor import (
+from ghostrouter.bouncer import enforce_bouncer
+from ghostrouter.job_registry import get_registry
+from ghostrouter.adapters.executor import (
     execute_call,
     AdapterRegistry,
     create_stub_adapter_registry,
 )
-from ControlCore.registry.loader import (
+from ghostrouter.registry.loader import (
     get_global_registry,
     set_global_registry,
     load_registry_from_dict,
 )
-from ControlCore.registry.schema import ModelRegistry
+from ghostrouter.registry.schema import ModelRegistry
 
 
 # Configure structured logging
@@ -58,7 +58,7 @@ structlog.configure(
     cache_logger_on_first_use=True,
 )
 
-logger = structlog.get_logger("ControlCore.daemon")
+logger = structlog.get_logger("ghostrouter.daemon")
 
 # Soft timeout for immediate response (ms)
 SOFT_TIMEOUT_MS = 5000
@@ -104,7 +104,7 @@ async def health(request: Request) -> JSONResponse:
 
 async def post_call(request: Request) -> JSONResponse:
     """
-    POST /call - Submit a ControlCore call.
+    POST /call - Submit a ghostrouter call.
 
     CRITICAL: No assist logic. Strict validation only.
     """

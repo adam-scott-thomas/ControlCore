@@ -1,5 +1,5 @@
 ﻿"""
-ControlCore CLI - Command-line interface for the ControlCore daemon.
+ghostrouter CLI - Command-line interface for the ghostrouter daemon.
 
 Subcommands:
 - serve: Start the daemon
@@ -17,9 +17,9 @@ from typing import Any
 import click
 import httpx
 
-from ControlCore.schemas import Verbosity, Determinism, IntentClass, CallStatus
-from ControlCore.normalize import assist_normalize_user_input, validate_candidates_strict
-from ControlCore.bouncer import OVERRIDE_PHRASES_REQUIRED
+from ghostrouter.schemas import Verbosity, Determinism, IntentClass, CallStatus
+from ghostrouter.normalize import assist_normalize_user_input, validate_candidates_strict
+from ghostrouter.bouncer import OVERRIDE_PHRASES_REQUIRED
 
 
 DEFAULT_HOST = "127.0.0.1"
@@ -86,9 +86,9 @@ def format_result(result: dict[str, Any]) -> str:
 
 
 @click.group()
-@click.version_option(version="0.1.0", prog_name="ControlCore")
+@click.version_option(version="0.1.0", prog_name="ghostrouter")
 def main():
-    """ControlCore CLI - Structured LLM call orchestration."""
+    """ghostrouter CLI - Structured LLM call orchestration."""
     pass
 
 
@@ -96,11 +96,11 @@ def main():
 @click.option("--host", default=DEFAULT_HOST, help="Host to bind to")
 @click.option("--port", default=DEFAULT_PORT, type=int, help="Port to bind to")
 def serve(host: str, port: int):
-    """Start the ControlCore daemon."""
-    click.echo(f"Starting ControlCore daemon on {host}:{port}")
+    """Start the ghostrouter daemon."""
+    click.echo(f"Starting ghostrouter daemon on {host}:{port}")
     click.echo("Press Ctrl+C to stop")
 
-    from ControlCore.daemon import run_server
+    from ghostrouter.daemon import run_server
     run_server(host=host, port=port)
 
 
@@ -129,7 +129,7 @@ def call(
     account_id: str,
     json_output: bool,
 ):
-    """Submit a call to the ControlCore daemon."""
+    """Submit a call to the ghostrouter daemon."""
     base_url = get_base_url(host, port)
 
     # Build raw payload
@@ -179,7 +179,7 @@ def call(
 
     except httpx.ConnectError:
         click.echo(f"Error: Could not connect to daemon at {base_url}", err=True)
-        click.echo("Is the daemon running? Start it with: ControlCore serve", err=True)
+        click.echo("Is the daemon running? Start it with: ghostrouter serve", err=True)
         sys.exit(1)
     except httpx.TimeoutException:
         click.echo("Error: Request timed out", err=True)
@@ -241,7 +241,7 @@ def result(job_id: str, host: str, port: int, json_output: bool, poll: bool, pol
 @click.option("--json-output", is_flag=True, help="Output raw JSON")
 def run(model: str, prompt: str, host: str, port: int, json_output: bool):
     """
-    Sugar mode: ControlCore run <model> "<prompt>"
+    Sugar mode: ghostrouter run <model> "<prompt>"
 
     Uses client-side assist layer to compile down to strict ControlCoreCall.
     """
@@ -286,7 +286,7 @@ def run(model: str, prompt: str, host: str, port: int, json_output: bool):
 
     except httpx.ConnectError:
         click.echo(f"Error: Could not connect to daemon at {base_url}", err=True)
-        click.echo("Is the daemon running? Start it with: ControlCore serve", err=True)
+        click.echo("Is the daemon running? Start it with: ghostrouter serve", err=True)
         sys.exit(1)
 
 
@@ -315,7 +315,7 @@ def health(host: str, port: int):
 
     except httpx.ConnectError:
         click.echo(f"Error: Could not connect to daemon at {base_url}", err=True)
-        click.echo("Is the daemon running? Start it with: ControlCore serve", err=True)
+        click.echo("Is the daemon running? Start it with: ghostrouter serve", err=True)
         sys.exit(1)
 
 

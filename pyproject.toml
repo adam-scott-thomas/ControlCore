@@ -45,7 +45,7 @@ dev = [
 ]
 
 [project.scripts]
-ghostrouter = "ControlCore.cli:main"
+ghostrouter = "ghostrouter.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

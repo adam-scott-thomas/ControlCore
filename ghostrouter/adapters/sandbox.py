@@ -40,8 +40,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, TypeVar, Union
 
-from ControlCore.schemas import ControlCoreCall
-from ControlCore.adapters.interface import (
+from ghostrouter.schemas import ControlCoreCall
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterConfig,
     AdapterResult,
@@ -50,7 +50,7 @@ from ControlCore.adapters.interface import (
 )
 
 # Module-level logger for sandbox warnings
-_sandbox_logger = logging.getLogger("ControlCore.sandbox")
+_sandbox_logger = logging.getLogger("ghostrouter.sandbox")
 
 # Track if we've already warned about Windows limitations
 _windows_warning_issued = False

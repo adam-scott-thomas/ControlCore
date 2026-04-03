@@ -1,5 +1,5 @@
 """
-Tests for ControlCore/registry/preferences.py
+Tests for ghostrouter/registry/preferences.py
 
 Covers:
 1. Task affinity boost matches intent + model
@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.registry.preferences import AffinityRule, Preferences
+from ghostrouter.registry.preferences import AffinityRule, Preferences
 
 
 # ---------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-﻿"""In-memory job registry for tracking ControlCore calls."""
+﻿"""In-memory job registry for tracking ghostrouter calls."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     ControlCoreCall,
     ControlCoreCallResult,
     CallStatus,

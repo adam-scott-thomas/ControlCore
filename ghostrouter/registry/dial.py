@@ -13,8 +13,8 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
 
-from ControlCore.schemas import ControlCoreCall, TrustTier as CallTrustTier
-from ControlCore.registry.schema import ModelRegistry, ModelEntry, TrustTier
+from ghostrouter.schemas import ControlCoreCall, TrustTier as CallTrustTier
+from ghostrouter.registry.schema import ModelRegistry, ModelEntry, TrustTier
 
 
 class ExclusionReason(str, Enum):
@@ -190,7 +190,7 @@ def filter_by_capability(
 
     This is a helper for more specific filtering after eligibility.
     """
-    from ControlCore.registry.schema import CapabilityTag
+    from ghostrouter.registry.schema import CapabilityTag
 
     required = set()
     for cap in required_capabilities:
@@ -215,7 +215,7 @@ def filter_by_provider(
     """
     Additional filter: only models from specific providers.
     """
-    from ControlCore.registry.schema import Provider
+    from ghostrouter.registry.schema import Provider
 
     allowed = set()
     for p in allowed_providers:

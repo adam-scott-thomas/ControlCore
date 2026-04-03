@@ -1,6 +1,6 @@
 ﻿"""Execution adapters - interface and implementations."""
 
-from ControlCore.adapters.interface import (
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterConfig,
     AdapterResult,
@@ -8,18 +8,18 @@ from ControlCore.adapters.interface import (
     AdapterProvenance,
     AdapterTiming,
 )
-from ControlCore.adapters.cpu import (
+from ghostrouter.adapters.cpu import (
     CPUAdapter,
     CPUAdapterConfig,
     StubCPUAdapter,
 )
-from ControlCore.adapters.remote import (
+from ghostrouter.adapters.remote import (
     RemoteAPIAdapter,
     RemoteAdapterConfig,
     CredentialProvider,
     MockRemoteAdapter,
 )
-from ControlCore.adapters.sandbox import (
+from ghostrouter.adapters.sandbox import (
     SandboxConfig,
     SandboxViolation,
     ViolationType,
@@ -34,7 +34,7 @@ from ControlCore.adapters.sandbox import (
     validate_sandbox_config,
     merge_sandbox_configs,
 )
-from ControlCore.adapters.executor import (
+from ghostrouter.adapters.executor import (
     ExecutionEngine,
     ExecutionOutcome,
     ExecutionAttempt,

@@ -1,11 +1,11 @@
 ﻿"""
-Client-side assist layer for normalizing ControlCore calls.
+Client-side assist layer for normalizing ghostrouter calls.
 
 CRITICAL: This module runs CLIENT-SIDE ONLY.
 The daemon MUST NEVER execute assist logic.
 
 INVARIANT: All execution inputs are normalized before routing.
-Both `ControlCore call` and `ControlCore run` CLI commands use:
+Both `ghostrouter call` and `ghostrouter run` CLI commands use:
   1. assist_normalize_user_input() - fix/augment raw input
   2. validate_candidates_strict() - convert to strict ControlCoreCall
 

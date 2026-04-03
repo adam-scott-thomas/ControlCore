@@ -1,6 +1,6 @@
-"""Spine bootstrap for ControlCore.
+"""Spine bootstrap for ghostrouter.
 
-Optional — ControlCore works without spine. But if spine is booted,
+Optional — ghostrouter works without spine. But if spine is booted,
 any module can access registries via Core.instance().
 """
 from __future__ import annotations
@@ -10,16 +10,16 @@ from spine import Core
 
 
 def boot(config_path: Optional[Path] = None) -> Core:
-    """Boot spine with ControlCore registries."""
-    from ControlCore.config import ControlCoreConfig, load_model_registry
-    from ControlCore.adapters.cloud import create_all_cloud_adapters
-    from ControlCore.adapters.executor import AdapterRegistry
-    from ControlCore.circuit_breaker import CircuitBreakerRegistry
+    """Boot spine with ghostrouter registries."""
+    from ghostrouter.config import ControlCoreConfig, load_model_registry
+    from ghostrouter.adapters.cloud import create_all_cloud_adapters
+    from ghostrouter.adapters.executor import AdapterRegistry
+    from ghostrouter.circuit_breaker import CircuitBreakerRegistry
 
     def setup(c: Core) -> None:
-        from ControlCore.registry.learning import LearningStore
-        from ControlCore.registry.budget import BudgetTracker
-        from ControlCore.registry.config_loader import load_router_config
+        from ghostrouter.registry.learning import LearningStore
+        from ghostrouter.registry.budget import BudgetTracker
+        from ghostrouter.registry.config_loader import load_router_config
 
         config = ControlCoreConfig()
         if config_path is not None:

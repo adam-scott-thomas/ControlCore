@@ -1,8 +1,8 @@
-﻿"""ControlCore - Structured LLM call orchestration daemon and CLI."""
+﻿"""ghostrouter - Structured LLM call orchestration daemon and CLI."""
 
 __version__ = "0.1.0"
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     ControlCoreCall,
     ControlCoreCallResult,
     Caller,
@@ -25,9 +25,9 @@ from ControlCore.schemas import (
     RedactionReport,
     NormalizationReport,
 )
-from ControlCore.bouncer import enforce_bouncer
-from ControlCore.normalize import assist_normalize_user_input, validate_candidates_strict
-from ControlCore.redaction import redact_text
+from ghostrouter.bouncer import enforce_bouncer
+from ghostrouter.normalize import assist_normalize_user_input, validate_candidates_strict
+from ghostrouter.redaction import redact_text
 
 __all__ = [
     "ControlCoreCall",

@@ -17,8 +17,8 @@ from typing import Any, Dict, List, Optional, Set, Callable, Tuple
 
 import httpx
 
-from ControlCore.schemas import ControlCoreCall
-from ControlCore.adapters.interface import (
+from ghostrouter.schemas import ControlCoreCall
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterConfig,
     AdapterResult,

@@ -28,8 +28,8 @@ from urllib.parse import urlparse
 
 import httpx
 
-from ControlCore.schemas import ControlCoreCall
-from ControlCore.adapters.interface import (
+from ghostrouter.schemas import ControlCoreCall
+from ghostrouter.adapters.interface import (
     ExecutionAdapter,
     AdapterConfig,
     AdapterResult,

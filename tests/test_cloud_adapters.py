@@ -17,7 +17,7 @@ import httpx
 import pytest
 import respx
 
-from ControlCore.adapters.cloud import (
+from ghostrouter.adapters.cloud import (
     CloudAdapter,
     CloudAdapterConfig,
     CloudProvider,
@@ -38,7 +38,7 @@ from ControlCore.adapters.cloud import (
     create_all_cloud_adapters,
     PROVIDER_ENDPOINTS,
 )
-from ControlCore.adapters.interface import AdapterStatus
+from ghostrouter.adapters.interface import AdapterStatus
 from tests.conftest import make_call
 
 
@@ -923,7 +923,7 @@ class TestStreamingSupport:
 
     def test_cohere_does_not_support_streaming(self):
         """CohereAdapter has no _parse_stream_chunk override."""
-        from ControlCore.adapters.cloud import CohereAdapter
+        from ghostrouter.adapters.cloud import CohereAdapter
         config = CloudAdapterConfig(
             adapter_name="cohere",
             adapter_version="1.0.0",

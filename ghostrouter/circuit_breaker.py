@@ -21,7 +21,7 @@ from enum import Enum
 from threading import Lock
 from typing import Dict, Optional, Callable, Any
 
-from ControlCore.observability import get_metrics, Metrics, TracedLogger
+from ghostrouter.observability import get_metrics, Metrics, TracedLogger
 
 logger = TracedLogger(__name__)
 

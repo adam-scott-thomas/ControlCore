@@ -1,5 +1,5 @@
 """
-Tests for ControlCore/registry/fallback.py
+Tests for ghostrouter/registry/fallback.py
 
 Covers:
 - All five factory functions (default, fail_fast, aggressive_retry, queue_preferred, cost_sensitive)
@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.registry.fallback import (
+from ghostrouter.registry.fallback import (
     FallbackPolicy,
     ModelSwitchCondition,
     QueueEscalationCondition,

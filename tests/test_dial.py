@@ -1,5 +1,5 @@
 """
-Tests for ControlCore.registry.dial — filter_eligible_models()
+Tests for ghostrouter.registry.dial — filter_eligible_models()
 
 Covers:
   - Disabled model excluded (DISABLED)
@@ -16,12 +16,12 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.registry.dial import (
+from ghostrouter.registry.dial import (
     ExclusionReason,
     filter_eligible_models,
 )
-from ControlCore.registry.schema import ModelRegistry, TrustTier
-from ControlCore.schemas import IntentClass, TrustTier as CallTrustTier
+from ghostrouter.registry.schema import ModelRegistry, TrustTier
+from ghostrouter.schemas import IntentClass, TrustTier as CallTrustTier
 
 from tests.conftest import make_call, make_model
 
@@ -154,7 +154,7 @@ def test_trusted_call_excludes_standard_model():
     # Build a call that requires trusted tier
     call = make_call()
     # Manually patch target trust_tier to "trusted"
-    from ControlCore.schemas import TrustTier as CallTT
+    from ghostrouter.schemas import TrustTier as CallTT
     call.target.trust_tier = CallTT.trusted
 
     result = filter_eligible_models(call, registry)
@@ -167,7 +167,7 @@ def test_trusted_call_includes_trusted_model():
     model = make_model(alias="judge:trusted", trust_tier=TrustTier.trusted)
     registry = make_registry(model)
     call = make_call(target_alias="judge:trusted")
-    from ControlCore.schemas import TrustTier as CallTT
+    from ghostrouter.schemas import TrustTier as CallTT
     call.target.trust_tier = CallTT.trusted
 
     result = filter_eligible_models(call, registry)
@@ -231,7 +231,7 @@ def test_large_context_window_passes():
 
 def test_model_soft_timeout_exceeds_call_hard_timeout_excluded():
     """Model whose soft_ms > call hard_ms should be excluded."""
-    from ControlCore.registry.schema import TimeoutDefaults
+    from ghostrouter.registry.schema import TimeoutDefaults
     model = make_model(
         alias="slow:model",
         timeouts=TimeoutDefaults(soft_ms=90000, hard_ms=180000),
@@ -247,7 +247,7 @@ def test_model_soft_timeout_exceeds_call_hard_timeout_excluded():
 
 
 def test_model_soft_timeout_within_call_hard_timeout_passes():
-    from ControlCore.registry.schema import TimeoutDefaults
+    from ghostrouter.registry.schema import TimeoutDefaults
     model = make_model(
         alias="fast:model",
         timeouts=TimeoutDefaults(soft_ms=15000, hard_ms=60000),

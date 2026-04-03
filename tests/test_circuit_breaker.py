@@ -19,7 +19,7 @@ import time
 
 import pytest
 
-from ControlCore.circuit_breaker import (
+from ghostrouter.circuit_breaker import (
     CircuitBreaker,
     CircuitBreakerRegistry,
     CircuitConfig,

@@ -1,5 +1,5 @@
 """
-ControlCore Configuration Module
+ghostrouter Configuration Module
 
 Handles loading configuration, model registry, and adapter initialization.
 """
@@ -11,10 +11,10 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from ControlCore.registry.schema import ModelRegistry, ModelEntry, Provider
-from ControlCore.registry.loader import load_registry_from_dict, set_global_registry
-from ControlCore.adapters.executor import AdapterRegistry
-from ControlCore.adapters.interface import ExecutionAdapter
+from ghostrouter.registry.schema import ModelRegistry, ModelEntry, Provider
+from ghostrouter.registry.loader import load_registry_from_dict, set_global_registry
+from ghostrouter.adapters.executor import AdapterRegistry
+from ghostrouter.adapters.interface import ExecutionAdapter
 
 
 # Default config paths
@@ -24,7 +24,7 @@ DEFAULT_REGISTRY_FILE = DEFAULT_CONFIG_DIR / "registry.json"
 
 class ControlCoreConfig:
     """
-    Central configuration for ControlCore.
+    Central configuration for ghostrouter.
 
     Loads from environment variables and config files.
     """
@@ -75,7 +75,7 @@ def load_model_registry(config: ControlCoreConfig) -> ModelRegistry:
     registry_path = Path(config.registry_path)
 
     if not registry_path.exists():
-        print(f"[ControlCore] Registry file not found: {registry_path}")
+        print(f"[ghostrouter] Registry file not found: {registry_path}")
         return load_registry_from_dict({"version": "1.0.0", "models": []})
 
     try:
@@ -83,11 +83,11 @@ def load_model_registry(config: ControlCoreConfig) -> ModelRegistry:
             data = json.load(f)
 
         registry = load_registry_from_dict(data)
-        print(f"[ControlCore] Loaded {len(registry)} models from registry")
+        print(f"[ghostrouter] Loaded {len(registry)} models from registry")
         return registry
 
     except Exception as e:
-        print(f"[ControlCore] Error loading registry: {e}")
+        print(f"[ghostrouter] Error loading registry: {e}")
         return load_registry_from_dict({"version": "1.0.0", "models": []})
 
 
@@ -99,8 +99,8 @@ def create_adapter_registry(config: ControlCoreConfig, model_registry: ModelRegi
     - Ollama adapter for local models
     - Cloud adapters for providers with API keys
     """
-    from ControlCore.adapters.ollama import create_ollama_adapter
-    from ControlCore.adapters.cloud import (
+    from ghostrouter.adapters.ollama import create_ollama_adapter
+    from ghostrouter.adapters.cloud import (
         create_openai_adapter,
         create_anthropic_adapter,
         create_xai_adapter,
@@ -129,7 +129,7 @@ def create_adapter_registry(config: ControlCoreConfig, model_registry: ModelRegi
             model_mapping=local_models,
         )
         adapter_registry.register(ollama)
-        print(f"[ControlCore] Registered Ollama adapter with {len(local_models)} models")
+        print(f"[ghostrouter] Registered Ollama adapter with {len(local_models)} models")
 
     # Create cloud adapters for providers with API keys
     cloud_adapters = {
@@ -148,7 +148,7 @@ def create_adapter_registry(config: ControlCoreConfig, model_registry: ModelRegi
         if config.has_api_key(provider):
             adapter = factory()
             adapter_registry.register(adapter)
-            print(f"[ControlCore] Registered {provider} adapter")
+            print(f"[ghostrouter] Registered {provider} adapter")
 
     # Set default adapter (Ollama if available, else first cloud adapter)
     adapters = adapter_registry.list_adapters()
@@ -164,7 +164,7 @@ def create_adapter_registry(config: ControlCoreConfig, model_registry: ModelRegi
 
 def initialize_controlcore() -> tuple[ControlCoreConfig, ModelRegistry, AdapterRegistry]:
     """
-    Initialize ControlCore with all configuration.
+    Initialize ghostrouter with all configuration.
 
     Returns:
         Tuple of (config, model_registry, adapter_registry)
@@ -182,7 +182,7 @@ def initialize_controlcore() -> tuple[ControlCoreConfig, ModelRegistry, AdapterR
 def print_config_status(config: ControlCoreConfig, model_registry: ModelRegistry) -> None:
     """Print configuration status for debugging."""
     print("\n" + "=" * 60)
-    print("ControlCore Configuration Status")
+    print("ghostrouter Configuration Status")
     print("=" * 60)
 
     print(f"\nServer: {config.host}:{config.port}")
@@ -212,7 +212,7 @@ def print_config_status(config: ControlCoreConfig, model_registry: ModelRegistry
 
 # Environment variable template
 ENV_TEMPLATE = """
-# ControlCore Environment Variables
+# ghostrouter Environment Variables
 # Copy this to .env and fill in your API keys
 
 # Server Configuration

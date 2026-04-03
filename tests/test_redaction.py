@@ -1,5 +1,5 @@
 """
-Tests for ControlCore.redaction.redact_text
+Tests for ghostrouter.redaction.redact_text
 
 API: redact_text(text: str) -> Tuple[str, RedactionReport]
 
@@ -11,8 +11,8 @@ from __future__ import annotations
 
 import pytest
 
-from ControlCore.redaction import redact_text
-from ControlCore.schemas import RedactionReport
+from ghostrouter.redaction import redact_text
+from ghostrouter.schemas import RedactionReport
 
 
 # ---------------------------------------------------------------------------

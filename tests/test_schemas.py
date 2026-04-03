@@ -1,5 +1,5 @@
 """
-Schema validation tests for ControlCore.
+Schema validation tests for ghostrouter.
 
 Covers: ControlCoreCall, ControlCoreCallResult, Caller, Intent, Target,
         Params, CallOptions, RedactionPolicy, all enums.
@@ -13,7 +13,7 @@ from datetime import datetime
 import pytest
 from pydantic import ValidationError
 
-from ControlCore.schemas import (
+from ghostrouter.schemas import (
     CallError,
     CallOptions,
     CallStatus,

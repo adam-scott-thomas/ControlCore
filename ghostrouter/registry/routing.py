@@ -14,8 +14,8 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
 
-from ControlCore.schemas import ControlCoreCall
-from ControlCore.registry.schema import ModelEntry, TrustTier, CapabilityTag
+from ghostrouter.schemas import ControlCoreCall
+from ghostrouter.registry.schema import ModelEntry, TrustTier, CapabilityTag
 
 
 class RoutingFactor(str, Enum):
@@ -592,7 +592,7 @@ def compute_routing_order_from_aliases(
 
     Looks up ModelEntry objects from registry.
     """
-    from ControlCore.registry.schema import ModelRegistry
+    from ghostrouter.registry.schema import ModelRegistry
 
     eligible_models = []
     for alias in eligible_aliases:
