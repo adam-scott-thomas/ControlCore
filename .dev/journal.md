@@ -228,3 +228,4 @@ Chronological log of work activity.
 - 2026-04-02 12:47 — fix: small typo
 - 2026-04-04 14:33 — test: cover newly-reported case
 - 2026-04-06 14:48 — fix: small typo
+- 2026-04-06 15:07 — docs: clarify install
