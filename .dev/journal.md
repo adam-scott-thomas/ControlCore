@@ -230,3 +230,4 @@ Chronological log of work activity.
 - 2026-04-06 14:48 — fix: small typo
 - 2026-04-06 15:07 — docs: clarify install
 - 2026-04-06 15:26 — docs: clarify install
+- 2026-04-07 11:39 — docs: fix broken link
