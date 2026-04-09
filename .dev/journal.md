@@ -233,3 +233,4 @@ Chronological log of work activity.
 - 2026-04-07 11:39 — docs: fix broken link
 - 2026-04-07 12:25 — docs: link to examples
 - 2026-04-08 16:10 — docs: fix broken link
+- 2026-04-09 15:38 — fix: small typo
