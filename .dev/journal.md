@@ -240,3 +240,4 @@ Chronological log of work activity.
 - 2026-04-13 12:14 — docs: link to examples
 - 2026-04-13 12:35 — test: cover newly-reported case
 - 2026-04-13 15:58 — docs: link to examples
+- 2026-04-15 13:51 — docs: link to examples
