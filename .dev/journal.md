@@ -242,3 +242,4 @@ Chronological log of work activity.
 - 2026-04-13 15:58 — docs: link to examples
 - 2026-04-15 13:51 — docs: link to examples
 - 2026-04-15 15:39 — docs: link to examples
+- 2026-04-16 17:45 — fix: small typo
