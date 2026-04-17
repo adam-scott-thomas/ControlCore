@@ -15,23 +15,23 @@ pip install ghostrouter
 ## Quick Start
 
 ```python
-from ControlCore.config import initialize_controlcore
-from ControlCore.adapters.executor import execute_call
-from ControlCore.schemas import ControlCoreCall, CallerIdentity, CallIntent, CallTarget
+import asyncio
+from ghostrouter.config import initialize_controlcore
+from ghostrouter.adapters.executor import execute_call
+from ghostrouter.schemas import ControlCoreCall, Caller, Intent, Target
 
 # Initialize registries (reads env vars for API keys)
 config, model_registry, adapter_registry = initialize_controlcore()
 
 # Build a call
 call = ControlCoreCall(
-    caller=CallerIdentity(handle="my-app", account_id="00000000-0000-0000-0000-000000000000"),
-    intent=CallIntent(cls="lookup"),
-    target=CallTarget(type="model", alias="claude"),
+    caller=Caller(handle="my-app", account_id="00000000-0000-0000-0000-000000000000"),
+    intent=Intent(**{"class": "lookup"}),           # `class` is aliased; use dict unpacking
+    target=Target(type="model", alias="claude"),
     prompt="What is the capital of France?",
 )
 
 # Execute with automatic fallback
-import asyncio
 result, trace = asyncio.run(execute_call(call, model_registry, adapter_registry))
 print(result.answer)
 ```
@@ -91,7 +91,7 @@ Set the relevant `*_API_KEY` environment variables to enable each provider.
 ghostrouter supports [maelspine](https://github.com/adam-scott-thomas/maelspine) for zero-import access to registries across a larger application:
 
 ```python
-from ControlCore.boot import boot
+from ghostrouter.boot import boot
 
 core = boot()  # idempotent singleton
 
@@ -119,4 +119,4 @@ ghostserver — evidence server (Blackbox)
 
 ## License
 
-MIT — Copyright 2026 Adam Thomas / GhostLogic LLC
+Apache-2.0 — Copyright 2026 Adam Thomas / GhostLogic LLC

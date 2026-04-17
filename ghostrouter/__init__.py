@@ -1,6 +1,6 @@
 ﻿"""ghostrouter - Structured LLM call orchestration daemon and CLI."""
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from ghostrouter.schemas import (
     ControlCoreCall,
