@@ -1,5 +1,7 @@
 # ghostrouter
 
+**English** · [中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Русский](README.ru.md) · [Deutsch](README.de.md)
+
 The LLM router that learns. Intelligent routing across 10+ providers, with fallback, circuit breakers, budget tracking, and post-model redaction.
 
 ## Why
